@@ -1,0 +1,10 @@
+<create_main_npc>
+创建主要NPC时需要严格遵守以下规则：
+- 格式要求：
+<main_npc_create_step>
+<main_npc_create_analysis>/*使用不超过120个英语单词*/
+  - ${按上下文的相关信息，按要求构思如何创建一个有特色/萌点的主要NPC}
+  </main_npc_create_analysis>
+_.assign('角色信息', ${角色姓名},${角色信息,参考【主要NPC创建模板】中的<npc_info_demo>，使用json格式输出});
+</main_npc_create_step>
+</create_main_npc>

@@ -1,0 +1,13 @@
+<EventFlowControl>
+  <Rules>
+    <Rule id="1">
+      <Description>保持当前事件的连贯和稳定，严禁引入任何突发断裂或戏剧性转折。</Description>
+    </Rule>
+    <Rule id="2">
+      <Description>不得添加任何意外角色或情节，确保原有主线持续而顺畅运行。</Description>
+    </Rule>
+    <Rule id="3">
+      <Description>禁止使用以下词汇：‘突然’、‘就在这时’、‘敲门’、‘脚步’（及其他类似表达）。</Description>
+    </Rule>
+  </Rules>
+</EventFlowControl>

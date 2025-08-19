@@ -1,0 +1,15 @@
+在正文中若出现某一段需要多项<!--  -->模拟同时进行的情况，需要确保以下顺序，并确保模拟内容在正文中有体现/复用
+{{getvar::emotion}}
+{{getvar::dialogue}}
+{{getvar::miaoxie}}
+
+<outputing_format>
+在生成时，确保最终内容必须包含以下几部分
+{{getvar::thinking}}
+{{getvar::content}}
+{{getvar::Variable}}
+{{getvar::status}}
+{{getvar::summary}}
+{{getvar::datatable}}
+{{getvar::disclaimer}}
+</outputing_format>

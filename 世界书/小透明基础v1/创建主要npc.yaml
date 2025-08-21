@@ -1,10 +1,24 @@
-<create_main_npc>
-创建主要NPC时需要严格遵守以下规则：
+<create_main_npc_rule>
+主要NPC创建界面规则：
+
 - 格式要求：
-<main_npc_create_step>
-<main_npc_create_analysis>/*使用不超过120个英语单词*/
-  - ${按上下文的相关信息，按要求构思如何创建一个有特色/萌点的主要NPC}
+<main_npc_create_view>
+<main_npc_create_analysis>
+  - ${
+根据已有信息，按以下步骤逐条思考：
+- 获取角色已有身份信息
+- 根据已有身份信息，发挥想象力避免刻板印象为角色补充并构建一个具有丰富故事性的和可探索性的复杂背景故事和角色出身
+- 以极度刁钻的资深日漫和成人漫画评论家和hentai的身份，点评角色背景故事和出身的可玩性和是否刻板印象并给出修改意见
+- 以“模拟升级主要NPC”为标题，以日本漫画编辑的身份和让角色人设更加丰富和出乎意料的目的，根据已有思考内容以<npc_info_demo>的格式将角色模拟升级成主要NPC
+- 以极度刁钻的资深日漫和成人漫画评论家和hentai的身份，按以下步骤逐条点评模拟生成的NPC：
+1.如何贯彻“让角色更立体，增加角色复杂度和个性，让人更有探索此角色的欲望”的目的，在接下来的步骤也要围绕这个目的点评
+2.如何增加萌点/反差点，可设置多个
+3.如何调整个人特色，性癖
+4.如何调整个人观念
+5.如何调整性格和性格标签
+6.如何调整特殊设定
+7.是否有其他能改进的地方
   </main_npc_create_analysis>
-_.assign('角色信息', ${角色姓名},${角色信息,参考【主要NPC创建模板】中的<npc_info_demo>，使用json格式输出});
-</main_npc_create_step>
-</create_main_npc>
+_.assign('角色信息', ${角色姓名},${根据<main_npc_create_analysis>的思考结果,参考<npc_info_demo>，使用json格式输出角色信息});
+</main_npc_create_view>
+</create_main_npc_rule>

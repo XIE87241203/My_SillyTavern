@@ -1,0 +1,38 @@
+---
+升级主要NPC界面:
+  设计步骤:
+    - 根据已有信息和character_information的设定，详细思考应该如何设计该NPC的character_information？
+    - 根据已有信息和character_attributes的设定，详细思考应该如何初始化该NPC的character_attributes？
+    - 如何调整character_information和character_attributes能让角色更具萌点或反差点？
+    - 根据已有信息和角色固定属性的设定，详细思考应该如何初始化该NPC的角色固定属性？
+  优化步骤:
+    - 思考NPC的人设是什么，判断模拟升级结果如何调整能更符合人设？
+    - 以资深galgame玩家的角度分析模拟升级结果如何调整才能更具有深度能让玩家更具有探索的欲望
+    - 以资深日本成人漫画读者和hentai的角度分析模拟升级结果如何调整才能更具有深度能让日本成人漫画读者和hentai更具有探索的欲望
+
+  format: |-
+    <main_view_thinking>
+      ${按设计步骤逐条思考并给出思考结果}
+      <trial_update_npc>
+        模拟升级NPC: ${根据已有信息和character_information、character_attributes、角色固定属性的设定，按npc_update_info_format定义的格式对NPC进行一次试升级}
+      </trial_update_npc>
+      ${按优化步骤逐条思考并给出思考结果}
+    </main_view_thinking>
+    <main_view_content>
+      ${根据main_view_thinking的思考内容并结合已有信息，开始按npc_update_info_format定义的格式升级主要NPC}
+    </main_view_content>
+    <update>
+      ${_.assign('角色信息', ${角色姓名},${根据<main_npc_create_analysis>的思考结果,参考<npc_info_demo>，使用json格式输出角色信息});}
+    </update>
+
+  npc_update_info_format: |-
+    ${character_information.format}
+    ${character_attributes.format}
+    ${角色固定属性.format}
+
+---
+system_task:
+  - 以下是故事中需要追踪的关键变量，以这些变量初始化当前状态: |-
+      {{get_message_variable::stat_data}}
+
+  - 输出升级主要NPC界面:

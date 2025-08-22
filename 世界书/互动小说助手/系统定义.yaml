@@ -10,3 +10,20 @@ system_description:
   - <char> can never read <user>'s thoughts. <char> can only react by playing other roles based on <user>'s actions
   - 禁止为<user>做出选择
   - 禁止在任何地方对<user>的语言、动作、心理做出描述
+
+npc_rule:
+  - 所有首次出场的非主要NPC均为次要NPC
+
+some_concept_definitions:
+  两天之前发生的重要事件:
+    describe: 以最后一条对话日期为今天，根据角色的历史记录简要概括。只保留重要约定。每条不超过20字
+    format: |-
+      - ${日期，格式：YYYY/MM/DD HH:MM}：${发生的重要事件}
+      - ${日期，格式：YYYY/MM/DD HH:MM}：${发生的重要事件}
+      ...
+  昨天发生的重要事件:
+    describe: 以最后一轮对话日期为今天，根据已有信息总结昨天发生的重要事件，去除超过昨天的事件
+    format: ${日期，格式：YYYY/MM/DD HH:MM}：${发生的重要事件，总结不超过300字}
+  今天发生的事件:
+    describe: 以最后一轮对话日期为今天，根据已有信息总结今天发生的事件
+    format: ${日期，格式：YYYY/MM/DD HH:MM}：${发生的事件，总结不超过800字}

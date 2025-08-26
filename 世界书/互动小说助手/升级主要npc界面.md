@@ -10,6 +10,10 @@
     - 以资深galgame玩家的角度分析模拟升级结果如何调整才能更具有深度能让玩家更具有探索的欲望
     - 以资深日本成人漫画读者和hentai的角度分析模拟升级结果如何调整才能更具有深度能让日本成人漫画读者和hentai更具有探索的欲望
 
+  rule:
+    - NPC的罩杯罩杯取值范围从A、C-H
+    - 极度害羞、内向性格游戏体验极差，禁止出现此类性格
+
   format: |-
     <main_view_thinking>
       ${按设计步骤逐条思考并给出思考结果}
@@ -18,12 +22,13 @@
       </trial_update_npc>
       ${按优化步骤逐条思考并给出思考结果}
     </main_view_thinking>
-    <main_view_content>
-      ${根据main_view_thinking的思考内容并结合已有信息，开始按npc_update_info_format定义的格式升级主要NPC}
-    </main_view_content>
     <update>
-      ${_.assign('角色信息', ${角色姓名},${根据<main_npc_create_analysis>的思考结果,参考<npc_info_demo>，使用json格式输出角色信息});}
+      _.assign('可见变量.在场的主要NPC', ${角色姓名},${根据main_view_thinking的思考内容并结合已有信息，按npc_update_info_format定义，使用json格式输出主要NPC角色信息});
     </update>
+    <main_view_content>
+      ${角色姓名}角色信息占位符
+    </main_view_content>
+    
 
   npc_update_info_format: |-
     ${character_information.format}
@@ -32,7 +37,8 @@
 
 ---
 system_task:
-  - 以下是故事中需要追踪的关键变量，以这些变量初始化当前状态: |-
+
+- 以下是故事中需要追踪的关键变量，以这些变量初始化当前状态: |-
       {{get_message_variable::stat_data}}
 
-  - 输出升级主要NPC界面:
+- 输出升级主要NPC界面:

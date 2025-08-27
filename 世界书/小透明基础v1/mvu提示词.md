@@ -1,10 +1,10 @@
 【变量更新】
-在所有文本的最后，进行变量更新。
-以下是故事中需要追踪的关键变量，当前状态以这些变量的值为准。
+在所有文本的最后,进行变量更新。
+以下是故事中需要追踪的关键变量,当前状态以这些变量的值为准。
 <status_current_variables>
 {{get_message_variable::stat_data}}
 </status_current_variables>
-严格按照以下规则和格式进行输出，并确定每一个变量是否需要更新，不要遗漏：
+严格按照以下规则和格式进行输出,并确定每一个变量是否需要更新,不要遗漏：
 rule:
   description:
     - You should output the update analysis in the end of the next response, following the variables list defined in <status_current_variables> section which will be provided by the previous turn.
@@ -47,6 +47,6 @@ rule:
         </Analysis>
         _.set('当前时间[0]', '2026-6-1 10:05', '2026-6-1 10:15');//时间流逝
         _.add('悠纪.好感度[0]', 2);//与悠纪的好感度增加
-        _.assign('悠纪.重要成就[0]', '2026年6月1日，悠纪对<user>告白成功');//悠纪对<user>成功告白
+        _.assign('悠纪.重要成就[0]', '2026年6月1日,悠纪对<user>告白成功');//悠纪对<user>成功告白
         _.remove('悠纪.着装[0]', '粉色缎带');//悠纪脱下粉色缎带
     </UpdateVariable>

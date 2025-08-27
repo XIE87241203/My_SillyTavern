@@ -53189,7 +53189,7 @@ function get_settings() {
         const config_file = (0,external_node_path_.resolve)(settings_dirname, 'tavern_sync.yaml');
         if (!(0,external_node_fs_.existsSync)(config_file)) {
             write_file_recursively(settings_dirname, config_file, settings_defaultraw_namespaceObject);
-            console.error(`配置文件不存在，已自动生成在 '${config_file}'，请填写配置文件后重新运行`);
+            console.error(`配置文件不存在,已自动生成在 '${config_file}',请填写配置文件后重新运行`);
             (0,external_node_process_.exit)(1);
         }
         const data = dist.parse((0,external_node_fs_.readFileSync)(config_file, 'utf8'));
@@ -56708,10 +56708,10 @@ function add_update_command() {
             const current_content = (0,external_node_fs_.readFileSync)(update_filename, 'utf8');
             const remote_content = await download_latest();
             if (current_content === remote_content) {
-                console.info('当前版本已是最新版本，无需更新');
+                console.info('当前版本已是最新版本,无需更新');
                 return;
             }
-            console.info('发现新版本，正在更新...');
+            console.info('发现新版本,正在更新...');
             const backup_path = `${update_filename}.backup`;
             try {
                 const currentContent = (0,external_node_fs_.readFileSync)(update_filename, 'utf8');
@@ -56719,7 +56719,7 @@ function add_update_command() {
                 console.info(`已备份当前版本到: ${backup_path}`);
             }
             catch (error) {
-                console.warn('无法创建备份文件，继续更新过程');
+                console.warn('无法创建备份文件,继续更新过程');
             }
             (0,external_node_fs_.writeFileSync)(update_filename, remote_content);
             console.info('更新成功! 请重新启动脚本以使用新版本');
@@ -56826,7 +56826,7 @@ const error = () => {
     return (issue) => {
         switch (issue.code) {
             case "invalid_type":
-                return `无效输入：期望 ${issue.expected}，实际接收 ${parsedType(issue.input)}`;
+                return `无效输入：期望 ${issue.expected},实际接收 ${parsedType(issue.input)}`;
             case "invalid_value":
                 if (issue.values.length === 1)
                     return `无效输入：期望 ${stringifyPrimitive(issue.values[0])}`;

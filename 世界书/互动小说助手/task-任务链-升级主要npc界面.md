@@ -1,5 +1,3 @@
-- 以下是故事中需要追踪的关键变量,以这些变量初始化当前状态: |-
-      {{get_message_variable::stat_data}}
 - 输出<update_npc_view>
 - 你必须根据以下步骤用逐条思考,并使用<main_view_thinking></main_view_thinking>标签包裹输出思考内容:
 <main_view_thinking>

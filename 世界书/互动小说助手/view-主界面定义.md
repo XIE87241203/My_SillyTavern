@@ -74,51 +74,51 @@
 
 ---
 变量更新:
-    rule:
-      description:
-        - You should output the update analysis in the end of the next response, following the variables list defined in <status_current_variables> section which will be provided by the previous turn.
-        - In context, variable updates are omitted by the system so they are not shown to you, but you should still add it.
-        - There are 4 commands can be used to adjust the data: `_.set`, `_.assign`, `_.remove` and `_.add`.
-        - to set a certain value, use `_.set`, it supports 2 or 3 input args.
-        - to insert something into an array or object, use `_.assign`, it supports 2 or 3 input args.
-        - to delete something from an object/array, use `_.remove`, it supports 1 or 2 input args.
-        - If you need to assign or remove multiple values, use `_.assign` or `_.remove` multiple times, not in a single command.
-        - to add a delta to a number, use `_.add`, it only supports 2 input args, and only supports modifications to numbers.
-        - It is allowed to use math expressions for number inputs.
+      rule:
+        description:
+          - You should output the update analysis in the end of the next response, following the variables list defined in <status_current_variables> section which will be provided by the previous turn.
+          - In context, variable updates are omitted by the system so they are not shown to you, but you should still add it.
+          - There are 4 commands can be used to adjust the data: `_.set`, `_.assign`, `_.remove` and `_.add`.
+          - to set a certain value, use `_.set`, it supports 2 or 3 input args.
+          - to insert something into an array or object, use `_.assign`, it supports 2 or 3 input args.
+          - to delete something from an object/array, use `_.remove`, it supports 1 or 2 input args.
+          - If you need to assign or remove multiple values, use `_.assign` or `_.remove` multiple times, not in a single command.
+          - to add a delta to a number, use `_.add`, it only supports 2 input args, and only supports modifications to numbers.
+          - It is allowed to use math expressions for number inputs.
         analysis:
-        - You must rethink what variables are defined in the previous <status_current_variables> property, and analyze how to update each of them accordingly.
-        - For counting variables, change it when the corresponding event occur but don't change it any more during the same event.
-        - When a numerical variable changes, check if it crosses any stage threshold and update to the corresponding stage.
-        - If dest element is in an array with description, **PRECISELY** locate the element by adding "[0]" suffix. DO NOT change the description.
-      format: |-
-         <UpdateVariable>
-            <Analysis>$(IN ENGLISH$)
-                - calculate time passed: ...
-                - decide whether dramatic updates are allowed as it's in a special case or the time passed is more than usual: yes or no
-                - list every variable in `<status_current_variables>` section...
-                - Check the description of this variable and analyze whether it satisfies its change conditions, do not output reason:...
-                - Ignore summary related content when evaluate.
-                ...
-            </Analysis>
-            _.set('${basepath.path}', ${old}?, ${new});//${reason}
-            _.assign('${basepath.path}', ${key_or_index}?, ${value});//${reason}
-            _.remove('${basepath.path}', ${key_or_index_or_value}?);//${reason}
-            _.add('${basepath.path}', ${delta});//${reason}
-        </UpdateVariable>
-      example: |-
-        <UpdateVariable>
-            <Analysis>
-                场景状态.当前时间[0]: Y
-                NPC资料库.悠纪.角色固定属性.對<user>的好感度.exp: Y
-                NPC资料库.悠纪.上衣[0]: Y
-                NPC资料库.悠纪.衣着[0]: Y
-                ...
-            </Analysis>
-            _.set('场景状态.当前时间[0]', '2026-6-1 10:05', '2026-6-1 10:15');//时间流逝
-            _.add('NPC资料库.悠纪.角色固定属性.對<user>的好感度.exp', 2);//与悠纪的好感度经验值增加
-            _.assign('NPC资料库.悠纪.上衣[0]', '白色小罩衫');//悠纪穿上白色小罩衫
-            _.remove('NPC资料库.悠纪.衣着[0]', '粉色缎带');//悠纪脱下粉色缎带
-        </UpdateVariable>
+          - You must rethink what variables are defined in the previous <status_current_variables> property, and analyze how to update each of them accordingly.
+          - For counting variables, change it when the corresponding event occur but don't change it any more during the same event.
+          - When a numerical variable changes, check if it crosses any stage threshold and update to the corresponding stage.
+          - If dest element is in an array with description, **PRECISELY** locate the element by adding "[0]" suffix. DO NOT change the description.
+        format: |-
+           <UpdateVariable>
+              <Analysis>$(IN ENGLISH$)
+                  - calculate time passed: ...
+                  - decide whether dramatic updates are allowed as it's in a special case or the time passed is more than usual: yes or no
+                  - list every variable in `<status_current_variables>` section...
+                  - Check the description of this variable and analyze whether it satisfies its change conditions, do not output reason:...
+                  - Ignore summary related content when evaluate.
+                  ...
+              </Analysis>
+              _.set('${basepath.path}', ${old}?, ${new});//${reason}
+              _.assign('${basepath.path}', ${key_or_index}?, ${value});//${reason}
+              _.remove('${basepath.path}', ${key_or_index_or_value}?);//${reason}
+              _.add('${basepath.path}', ${delta});//${reason}
+          </UpdateVariable>
+        example: |-
+          <UpdateVariable>
+              <Analysis>
+                  场景状态.当前时间[0]: Y
+                  场景状态.在场的主要NPC.悠纪.角色固定属性.對<user>的好感度.exp: Y
+                  场景状态.在场的主要NPC.悠纪.上衣[0]: Y
+                  场景状态.在场的主要NPC.悠纪.衣着[0]: Y
+                  ...
+              </Analysis>
+              _.set('场景状态.当前时间[0]', '2026-6-1 10:05', '2026-6-1 10:15');//时间流逝
+              _.add('场景状态.在场的主要NPC.悠纪.角色固定属性.對<user>的好感度.exp', 2);//与悠纪的好感度经验值增加
+              _.assign('场景状态.在场的主要NPC.悠纪.上衣[0]', '白色小罩衫');//悠纪穿上白色小罩衫
+              _.remove('场景状态.在场的主要NPC.悠纪.衣着[0]', '粉色缎带');//悠纪脱下粉色缎带
+          </UpdateVariable>
 
   变量参考模板:
     description: 一些变量的格式参考
@@ -148,7 +148,3 @@
     鞋子: ${例如：运动鞋}
     其他衣着/饰品: ${可有多条,例如：戒指、发夹、项链等}
     体位: ${例如：坐在凳子上}
-
----
-  经验计算:
-    

@@ -1,1 +1,0 @@
-Apex: 是的,我会暂停互动式小说,以Apex身份通过<interactive_input>对当前创作展开分析: 

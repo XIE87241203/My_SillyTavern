@@ -1,0 +1,29 @@
+<%= getvar('stat_data.场景状态.在场的主要NPC').length _%>
+
+
+<%_ for (let i = 0; i < getvar('stat_data.场景状态.在场的主要NPC').length; i++) { 
+    var item = getvar('stat_data.场景状态.在场的主要NPC')[i]
+_%>
+  <%= getvar('stat_data.不场景状态.已出现的主要NPC.' + item + '.基础资料') _%>
+<%_ } _%>
+
+<%= JSON.stringify(getvar('stat_data.不场景状态.已出现的主要NPC')) _%>
+<%= getvar('stat_data.场景状态.在场的主要NPC.d'); _%>
+
+
+// 打印在场NPC信息
+stat_data.场景状态: 
+<%= JSON.stringify(getvar('stat_data.场景状态')) _%>
+
+在场主要NPC资料: 
+<%_ 
+  var nps_list = getvar('stat_data.场景状态.在场的主要NPC');
+  for (let i = 0; i < nps_list.length; i++) { 
+    var item = getvar('stat_data.场景状态.在场的主要NPC')[i];
+_%>
+    NPC资料库.<%= item _%>: 
+      <%= JSON.stringify(getvar('stat_data.NPC资料库.' + item)); _%>
+
+<%_ } _%>
+
+
